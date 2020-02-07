@@ -12,6 +12,8 @@
 		2203BA1723EE2539007105AF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2203BA1523EE2539007105AF /* LaunchScreen.storyboard */; };
 		2203BA2223EE2539007105AF /* ContactsManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2203BA2123EE2539007105AF /* ContactsManagerTests.swift */; };
 		2203BA2D23EE2539007105AF /* ContactsManagerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2203BA2C23EE2539007105AF /* ContactsManagerUITests.swift */; };
+		2203BA3C23EE2A69007105AF /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2203BA3B23EE2A69007105AF /* Contact.swift */; };
+		2203BA3E23EE2A9C007105AF /* ContactTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2203BA3D23EE2A9C007105AF /* ContactTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +45,8 @@
 		2203BA2823EE2539007105AF /* ContactsManagerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ContactsManagerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2203BA2C23EE2539007105AF /* ContactsManagerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsManagerUITests.swift; sourceTree = "<group>"; };
 		2203BA2E23EE2539007105AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2203BA3B23EE2A69007105AF /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		2203BA3D23EE2A9C007105AF /* ContactTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +97,7 @@
 		2203BA1023EE2533007105AF /* ContactsManager */ = {
 			isa = PBXGroup;
 			children = (
+				2203BA3A23EE2794007105AF /* Objects */,
 				2203BA1123EE2533007105AF /* AppDelegate.swift */,
 				2203BA1323EE2539007105AF /* Assets.xcassets */,
 				2203BA1523EE2539007105AF /* LaunchScreen.storyboard */,
@@ -106,6 +111,7 @@
 			children = (
 				2203BA2123EE2539007105AF /* ContactsManagerTests.swift */,
 				2203BA2323EE2539007105AF /* Info.plist */,
+				2203BA3D23EE2A9C007105AF /* ContactTests.swift */,
 			);
 			path = ContactsManagerTests;
 			sourceTree = "<group>";
@@ -117,6 +123,14 @@
 				2203BA2E23EE2539007105AF /* Info.plist */,
 			);
 			path = ContactsManagerUITests;
+			sourceTree = "<group>";
+		};
+		2203BA3A23EE2794007105AF /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				2203BA3B23EE2A69007105AF /* Contact.swift */,
+			);
+			path = Objects;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,6 +263,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2203BA3C23EE2A69007105AF /* Contact.swift in Sources */,
 				2203BA1223EE2533007105AF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -257,6 +272,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2203BA3E23EE2A9C007105AF /* ContactTests.swift in Sources */,
 				2203BA2223EE2539007105AF /* ContactsManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
