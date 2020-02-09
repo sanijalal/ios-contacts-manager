@@ -18,6 +18,12 @@
 		228125CA23EE5A880037236E /* EntryField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228125C923EE5A880037236E /* EntryField.swift */; };
 		228125CC23EE5A940037236E /* EntryGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228125CB23EE5A940037236E /* EntryGroup.swift */; };
 		228125D023EE5B340037236E /* ContactEntryModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228125CF23EE5B340037236E /* ContactEntryModelTests.swift */; };
+		228125D323EE90530037236E /* EntryFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228125D123EE90530037236E /* EntryFieldTableViewCell.swift */; };
+		228125D423EE90530037236E /* EntryFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 228125D223EE90530037236E /* EntryFieldTableViewCell.xib */; };
+		228125D723EE96300037236E /* ContactEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228125D523EE96300037236E /* ContactEntryViewController.swift */; };
+		228125D823EE96300037236E /* ContactEntryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 228125D623EE96300037236E /* ContactEntryViewController.xib */; };
+		228125DA23EF7EA90037236E /* ContactEntryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228125D923EF7EA90037236E /* ContactEntryPresenter.swift */; };
+		228125DC23EF82570037236E /* ContactEntryPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228125DB23EF82570037236E /* ContactEntryPresenterTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +61,12 @@
 		228125C923EE5A880037236E /* EntryField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryField.swift; sourceTree = "<group>"; };
 		228125CB23EE5A940037236E /* EntryGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryGroup.swift; sourceTree = "<group>"; };
 		228125CF23EE5B340037236E /* ContactEntryModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactEntryModelTests.swift; sourceTree = "<group>"; };
+		228125D123EE90530037236E /* EntryFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryFieldTableViewCell.swift; sourceTree = "<group>"; };
+		228125D223EE90530037236E /* EntryFieldTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EntryFieldTableViewCell.xib; sourceTree = "<group>"; };
+		228125D523EE96300037236E /* ContactEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactEntryViewController.swift; sourceTree = "<group>"; };
+		228125D623EE96300037236E /* ContactEntryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactEntryViewController.xib; sourceTree = "<group>"; };
+		228125D923EF7EA90037236E /* ContactEntryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactEntryPresenter.swift; sourceTree = "<group>"; };
+		228125DB23EF82570037236E /* ContactEntryPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactEntryPresenterTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +169,11 @@
 				228125C723EE5A460037236E /* ContactEntryModel.swift */,
 				228125C923EE5A880037236E /* EntryField.swift */,
 				228125CB23EE5A940037236E /* EntryGroup.swift */,
+				228125D123EE90530037236E /* EntryFieldTableViewCell.swift */,
+				228125D223EE90530037236E /* EntryFieldTableViewCell.xib */,
+				228125D523EE96300037236E /* ContactEntryViewController.swift */,
+				228125D623EE96300037236E /* ContactEntryViewController.xib */,
+				228125D923EF7EA90037236E /* ContactEntryPresenter.swift */,
 			);
 			path = ContactsEntry;
 			sourceTree = "<group>";
@@ -172,6 +189,7 @@
 		228125CE23EE5B1F0037236E /* ContactsEntry */ = {
 			isa = PBXGroup;
 			children = (
+				228125DB23EF82570037236E /* ContactEntryPresenterTests.swift */,
 				228125CF23EE5B340037236E /* ContactEntryModelTests.swift */,
 			);
 			path = ContactsEntry;
@@ -281,7 +299,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				228125D823EE96300037236E /* ContactEntryViewController.xib in Resources */,
 				2203BA1423EE2539007105AF /* Assets.xcassets in Resources */,
+				228125D423EE90530037236E /* EntryFieldTableViewCell.xib in Resources */,
 				2203BA1723EE2539007105AF /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -307,10 +327,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				228125DA23EF7EA90037236E /* ContactEntryPresenter.swift in Sources */,
 				2203BA3C23EE2A69007105AF /* Contact.swift in Sources */,
 				228125CA23EE5A880037236E /* EntryField.swift in Sources */,
 				2203BA1223EE2533007105AF /* AppDelegate.swift in Sources */,
+				228125D323EE90530037236E /* EntryFieldTableViewCell.swift in Sources */,
 				228125CC23EE5A940037236E /* EntryGroup.swift in Sources */,
+				228125D723EE96300037236E /* ContactEntryViewController.swift in Sources */,
 				228125C823EE5A460037236E /* ContactEntryModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -319,6 +342,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				228125DC23EF82570037236E /* ContactEntryPresenterTests.swift in Sources */,
 				228125D023EE5B340037236E /* ContactEntryModelTests.swift in Sources */,
 				2203BA3E23EE2A9C007105AF /* ContactTests.swift in Sources */,
 				2203BA2223EE2539007105AF /* ContactsManagerTests.swift in Sources */,
