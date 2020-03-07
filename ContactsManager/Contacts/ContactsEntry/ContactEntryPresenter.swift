@@ -53,4 +53,43 @@ class ContactEntryPresenter {
     func validateFields() -> Bool {
         return model.isValid()
     }
+    
+    func isPathAtLastItem(path: IndexPath) -> Bool {
+        if path.section != model.entries.count - 1 {
+            return false
+        }
+        
+        let section = model.entries[path.section]
+        
+        if (path.row != section.fields.count - 1) {
+            return false
+        }
+        return true
+    }
+    
+    func getPathForNextItem(path: IndexPath) -> IndexPath? {
+        
+        var section = path.section
+        var row = path.row
+        
+        if path.row >= model.entries[path.section].fields.count - 1 {
+            // Return next section
+            row = 0
+            section += 1
+        } else {
+            row += 1
+        }
+        
+        if section >= model.entries.count {
+            return nil // No next path
+        }
+        
+        // Get next row
+        return IndexPath(row: row, section: section)
+    }
+    
+    
+    func saveModel() {
+        
+    }
 }

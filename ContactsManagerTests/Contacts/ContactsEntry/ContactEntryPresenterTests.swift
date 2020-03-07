@@ -14,11 +14,11 @@ class ContactEntryPresenterTests: XCTestCase {
     private func createPresenter() -> ContactEntryPresenter {
         let presenter = ContactEntryPresenter(model: ContactEntryModel(fields: [
             EntryGroup(type: .mainInfo, fields: [
-                EntryField(type: .firstName, isRequired: true, value: ""),
-                EntryField(type: .lastName, isRequired: true, value: ""),
+                EntryField(type: .firstName, isRequired: true, keyboardType: .namePhonePad, capitalizationType: .words, value: ""),
+                EntryField(type: .lastName, isRequired: true, keyboardType: .namePhonePad, capitalizationType: .words, value: ""),
             ]),
             EntryGroup(type: .subInfo, fields: [
-                EntryField(type: .email, isRequired: false, value: "")
+                EntryField(type: .email, isRequired: false, keyboardType: .namePhonePad, capitalizationType: .words, value: "")
             ])
         ]))
         
@@ -40,7 +40,7 @@ class ContactEntryPresenterTests: XCTestCase {
         let presenter = createPresenter()
         let model = presenter.model(atPath: IndexPath(row: 0, section: 0))
         
-        let compareModel = EntryField(type: .firstName, isRequired: true, value: "")
+        let compareModel = EntryField(type: .firstName, isRequired: true, keyboardType: .namePhonePad, capitalizationType: .words, value: "")
         
         XCTAssertTrue(model?.type == compareModel.type)
         XCTAssertTrue(model?.value == compareModel.value)
@@ -57,11 +57,11 @@ class ContactEntryPresenterTests: XCTestCase {
     func testIsValidateReturnsTrueWhenAllFieldsAreCorrect() {
         let presenter = ContactEntryPresenter(model: ContactEntryModel(fields: [
             EntryGroup(type: .mainInfo, fields: [
-                EntryField(type: .firstName, isRequired: true, value: "Sani"),
-                EntryField(type: .lastName, isRequired: true, value: "Jo"),
+                EntryField(type: .firstName, isRequired: true, keyboardType: .namePhonePad, capitalizationType: .words, value: "Sani"),
+                EntryField(type: .lastName, isRequired: true, keyboardType: .namePhonePad, capitalizationType: .words, value: "Jo"),
             ]),
             EntryGroup(type: .subInfo, fields: [
-                EntryField(type: .email, isRequired: false, value: "")
+                EntryField(type: .email, isRequired: false, keyboardType: .namePhonePad, capitalizationType: .words, value: "")
             ])
         ]))
         
@@ -71,11 +71,11 @@ class ContactEntryPresenterTests: XCTestCase {
     func testIsValidateReturnsFalseWhenRequiredFieldsAreMissing() {
         let presenter = ContactEntryPresenter(model: ContactEntryModel(fields: [
             EntryGroup(type: .mainInfo, fields: [
-                EntryField(type: .firstName, isRequired: true, value: "Sani"),
-                EntryField(type: .lastName, isRequired: true, value: ""),
+                EntryField(type: .firstName, isRequired: true, keyboardType: .namePhonePad, capitalizationType: .words, value: "Sani"),
+                EntryField(type: .lastName, isRequired: true, keyboardType: .namePhonePad, capitalizationType: .words, value: ""),
             ]),
             EntryGroup(type: .subInfo, fields: [
-                EntryField(type: .email, isRequired: false, value: "")
+                EntryField(type: .email, isRequired: false, keyboardType: .namePhonePad, capitalizationType: .words, value: "")
             ])
         ]))
         
