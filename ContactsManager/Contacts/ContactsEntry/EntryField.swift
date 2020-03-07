@@ -1,3 +1,5 @@
+import UIKit
+
 enum EntryFieldType: String, Equatable {
     case firstName = "First Name"
     case lastName = "Last Name"
@@ -8,5 +10,7 @@ enum EntryFieldType: String, Equatable {
 struct EntryField {
     let type: EntryFieldType
     let isRequired: Bool
+    let keyboardType: UIKeyboardType
+    let capitalizationType: UITextAutocapitalizationType
     var value: String?
 }

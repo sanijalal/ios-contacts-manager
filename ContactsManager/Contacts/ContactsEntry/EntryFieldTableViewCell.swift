@@ -8,10 +8,16 @@
 
 import UIKit
 
+protocol EntryFieldTableViewCellDelegate :NSObjectProtocol {
+    func returnPressed(cell: UITableViewCell)
+}
+
 class EntryFieldTableViewCell: UITableViewCell {
 
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var fieldLabel: UILabel!
+    private weak var entryFieldDelegate: EntryFieldTableViewCellDelegate?
+    
     private var isShowingRequired: Bool!
     private var isRequiredCell: Bool!
 
@@ -22,10 +28,14 @@ class EntryFieldTableViewCell: UITableViewCell {
         self.selectionStyle = .none
     }
     
-    func configureCell(field: EntryField) {
+    func configureCell(field: EntryField, delegate: EntryFieldTableViewCellDelegate, returnKey: UIReturnKeyType) {
         fieldLabel.text = field.type.rawValue
         textField.text = field.value
         isRequiredCell = field.isRequired
+        entryFieldDelegate = delegate
+        
+        textField.keyboardType = field.keyboardType
+        textField.returnKeyType = returnKey
     }
     
     func showRequired () {
@@ -50,5 +60,20 @@ class EntryFieldTableViewCell: UITableViewCell {
         } else {
             showRequired()
         }
+    }
+    
+    func selectTextField () {
+        textField.becomeFirstResponder()
+    }
+}
+
+extension EntryFieldTableViewCell: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        entryFieldDelegate?.returnPressed(cell: self)
+        return true
     }
 }
