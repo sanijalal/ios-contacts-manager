@@ -18,7 +18,7 @@ class ContactsServiceTests: XCTestCase {
         return url.appendingPathComponent(fileName)
     }
     
-    override func setUp() {
+    override func tearDown() {
         guard let fileUrl = fileLocation(fileName: "contacts") else {
             return
         }

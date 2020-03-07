@@ -12,13 +12,17 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var contactListCoordinator: ContactListCoordinator?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        contactListCoordinator = ContactListCoordinator()
+        contactListCoordinator?.start()
+
         window = UIWindow()
         window?.backgroundColor = UIColor.cyan
-        window?.rootViewController = ContactEntryViewController()
+        window?.rootViewController = contactListCoordinator?.navigationController
         window?.makeKeyAndVisible()
 
         return true
