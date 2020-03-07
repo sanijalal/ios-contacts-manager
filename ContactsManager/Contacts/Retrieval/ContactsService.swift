@@ -2,15 +2,6 @@ import Foundation
 
 class ContactsService {
     
-    private func getDocumentsDirectory() -> URL {
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        return paths[0]
-    }
-    
-    private func getDocumentsFilePath(fileName: String) -> URL {
-        return getDocumentsDirectory().appendingPathComponent(fileName)
-    }
-    
     private func storedFileLocation(fileName: String) -> URL? {
         let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
         let url = NSURL(fileURLWithPath: path)
@@ -57,7 +48,9 @@ class ContactsService {
     func save(contacts: [Contact]) -> Bool {
         do {
             let contactData = try JSONEncoder().encode(contacts)
-            let fileUrl = getDocumentsFilePath(fileName: "contacts")
+            guard let fileUrl = storedFileLocation(fileName: "contacts") else {
+                return false
+            }
             try contactData.write(to: fileUrl)
             return true
         } catch {
