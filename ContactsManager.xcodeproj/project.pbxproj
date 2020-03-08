@@ -24,6 +24,8 @@
 		222B4F612413D56700CF620A /* ContactListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222B4F602413D56700CF620A /* ContactListModel.swift */; };
 		222B4F642413DADF00CF620A /* ContactListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222B4F622413DADF00CF620A /* ContactListCell.swift */; };
 		222B4F652413DADF00CF620A /* ContactListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 222B4F632413DADF00CF620A /* ContactListCell.xib */; };
+		222B4F682413DF6A00CF620A /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222B4F672413DF6A00CF620A /* CircleView.swift */; };
+		222B4F6A2413E21100CF620A /* UIColor+BrandOrange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222B4F692413E21100CF620A /* UIColor+BrandOrange.swift */; };
 		228125C823EE5A460037236E /* ContactEntryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228125C723EE5A460037236E /* ContactEntryModel.swift */; };
 		228125CA23EE5A880037236E /* EntryField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228125C923EE5A880037236E /* EntryField.swift */; };
 		228125CC23EE5A940037236E /* EntryGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228125CB23EE5A940037236E /* EntryGroup.swift */; };
@@ -77,6 +79,8 @@
 		222B4F602413D56700CF620A /* ContactListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListModel.swift; sourceTree = "<group>"; };
 		222B4F622413DADF00CF620A /* ContactListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListCell.swift; sourceTree = "<group>"; };
 		222B4F632413DADF00CF620A /* ContactListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactListCell.xib; sourceTree = "<group>"; };
+		222B4F672413DF6A00CF620A /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
+		222B4F692413E21100CF620A /* UIColor+BrandOrange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+BrandOrange.swift"; sourceTree = "<group>"; };
 		228125C723EE5A460037236E /* ContactEntryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactEntryModel.swift; sourceTree = "<group>"; };
 		228125C923EE5A880037236E /* EntryField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryField.swift; sourceTree = "<group>"; };
 		228125CB23EE5A940037236E /* EntryGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryGroup.swift; sourceTree = "<group>"; };
@@ -137,6 +141,7 @@
 		2203BA1023EE2533007105AF /* ContactsManager */ = {
 			isa = PBXGroup;
 			children = (
+				222B4F662413DF5200CF620A /* Branding */,
 				222B4F562413CDE400CF620A /* Coordinator */,
 				222B4F512413A1EC00CF620A /* Resources */,
 				228125C523EE5A100037236E /* Contacts */,
@@ -220,6 +225,15 @@
 				222B4F632413DADF00CF620A /* ContactListCell.xib */,
 			);
 			path = ContactList;
+			sourceTree = "<group>";
+		};
+		222B4F662413DF5200CF620A /* Branding */ = {
+			isa = PBXGroup;
+			children = (
+				222B4F672413DF6A00CF620A /* CircleView.swift */,
+				222B4F692413E21100CF620A /* UIColor+BrandOrange.swift */,
+			);
+			path = Branding;
 			sourceTree = "<group>";
 		};
 		228125C523EE5A100037236E /* Contacts */ = {
@@ -406,6 +420,7 @@
 				222B4F582413CF6600CF620A /* ContactListCoordinator.swift in Sources */,
 				228125CA23EE5A880037236E /* EntryField.swift in Sources */,
 				222B4F5F2413D3DB00CF620A /* ContactListPresenter.swift in Sources */,
+				222B4F682413DF6A00CF620A /* CircleView.swift in Sources */,
 				2203BA1223EE2533007105AF /* AppDelegate.swift in Sources */,
 				228125D323EE90530037236E /* EntryFieldTableViewCell.swift in Sources */,
 				228125CC23EE5A940037236E /* EntryGroup.swift in Sources */,
@@ -414,6 +429,7 @@
 				228125D723EE96300037236E /* ContactEntryViewController.swift in Sources */,
 				228125C823EE5A460037236E /* ContactEntryModel.swift in Sources */,
 				222B4F5C2413D05200CF620A /* ContactListViewController.swift in Sources */,
+				222B4F6A2413E21100CF620A /* UIColor+BrandOrange.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
