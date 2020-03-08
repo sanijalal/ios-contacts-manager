@@ -1,8 +1,14 @@
 import Foundation
 
+protocol ContactListPresenterDelegate {
+    func contactSelected(_ contact: Contact)
+}
+
 class ContactListPresenter {
     let contactService : ContactsService
     let model: ContactListModel
+    
+    var delegate: ContactListPresenterDelegate?
     
     init (contactService: ContactsService) {
         self.contactService = contactService
@@ -27,5 +33,9 @@ class ContactListPresenter {
         }
         
         return model.contacts[row]
+    }
+    
+    func contactSelected(_ contact: Contact) {
+        delegate?.contactSelected(contact)
     }
 }

@@ -39,6 +39,14 @@ extension ContactListViewController : UITableViewDataSource {
         if let contact = presenter.getContactAt(row: indexPath.row) {
             cell.configureCell(with: contact)
          }
-         return cell
+        return cell
+    }
+}
+
+extension ContactListViewController : UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let contact = presenter.getContactAt(row: indexPath.row) {
+            presenter.contactSelected(contact)
+         }
     }
 }
