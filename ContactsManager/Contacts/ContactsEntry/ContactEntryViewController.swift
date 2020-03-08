@@ -46,18 +46,25 @@ class ContactEntryViewController: UIViewController {
         tableView.register(UINib(nibName: "EntryFieldTableViewCell", bundle: nil),
                            forCellReuseIdentifier: "EntryCell")
         tableView.tableFooterView = UIView(frame: .zero)
+        
+        setupTopBar()
     }
 
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func setupTopBar() {
+        self.navigationItem.setLeftBarButton(UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(leftBarButtonItemPressed)),
+                                             animated: false)
+        self.navigationItem.setRightBarButton(UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(rightBarButtonItemPressed)),
+        animated: false)
     }
-    */
+    
+    @objc func leftBarButtonItemPressed() {
+        presenter.cancelPressed()
+    }
+    
+    @objc func rightBarButtonItemPressed() {
+        
+    }
 
 }
 

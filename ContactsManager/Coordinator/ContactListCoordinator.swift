@@ -42,8 +42,22 @@ extension ContactListCoordinator: ContactListPresenterDelegate {
         }
         
         let viewController = ContactEntryViewController(presenter: presenter)
-        viewController.modalPresentationStyle = .fullScreen
+        presenter.delegate = self
         
-        visibleViewController.present(viewController, animated: true) {}
+        let presentedNavigationController = UINavigationController()
+        presentedNavigationController.pushViewController(viewController, animated: false)
+        presentedNavigationController.modalPresentationStyle = .fullScreen
+        
+        visibleViewController.present(presentedNavigationController, animated: true) {}
+    }
+}
+
+extension ContactListCoordinator: ContactEntryPresenterDelegate {
+    func didPressCancel() {
+        guard let presentedController = navigationController.presentedViewController else {
+            return
+        }
+        
+        presentedController.dismiss(animated: true) {}
     }
 }

@@ -8,13 +8,13 @@
 
 import Foundation
 
-protocol ContactEntryPresenterDelegate : NSObjectProtocol {
-    func didLoadFields()
+protocol ContactEntryPresenterDelegate {
+    func didPressCancel()
 }
 
 class ContactEntryPresenter {
     let model : ContactEntryModel
-    weak var controllerDelegate: ContactEntryPresenterDelegate?
+    var delegate: ContactEntryPresenterDelegate?
     
     init (model: ContactEntryModel) {
         self.model = model
@@ -90,6 +90,14 @@ class ContactEntryPresenter {
     
     
     func saveModel() {
+        
+    }
+    
+    func cancelPressed() {
+        delegate?.didPressCancel()
+    }
+    
+    func savePressed() {
         
     }
 }

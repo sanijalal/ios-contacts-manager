@@ -20,6 +20,16 @@ class ContactListViewController: UIViewController {
                            forCellReuseIdentifier: "contactListCell")
         tableView.tableFooterView = UIView(frame: .zero)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        guard let selectedIndexPath = tableView.indexPathForSelectedRow else {
+            return
+        }
+        
+        tableView.deselectRow(at: selectedIndexPath, animated: true)
+    }
 
 }
 
@@ -47,6 +57,6 @@ extension ContactListViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let contact = presenter.getContactAt(row: indexPath.row) {
             presenter.contactSelected(contact)
-         }
+        }
     }
 }
