@@ -6,17 +6,25 @@ class ContactListCoordinator {
     
     let navigationController: UINavigationController
     let contactListPresenter: ContactListPresenter
+    let contactService: ContactsService
     var contactEntryPresenter: ContactEntryPresenter?
+    
+    var contacts: [Contact]
     
     init () {
         navigationController = UINavigationController()
-        contactListPresenter = ContactListPresenter(contactService: ContactsService())
+        contactService = ContactsService()
+        contacts = []
+        
+        let model = ContactListModel()
+        contactListPresenter = ContactListPresenter(model: model)
         contactListPresenter.delegate = self
     }
     
     func start () {
         let viewController = ContactListViewController(presenter: contactListPresenter)
-        contactListPresenter.setup()
+        contacts = contactService.getContacts()
+        contactListPresenter.model.contacts = contacts
         navigationController.pushViewController(viewController, animated: false)
     }
 }
@@ -34,7 +42,7 @@ extension ContactListCoordinator: ContactListPresenterDelegate {
                 EntryField(type: .email, isRequired: false, keyboardType: .emailAddress, capitalizationType: .none, value: contact.email),
                 EntryField(type: .phoneNumber, isRequired: false, keyboardType: .namePhonePad, capitalizationType: .none, value: contact.phone),
             ])
-        ])
+        ], id: contact.id)
         
         contactEntryPresenter = ContactEntryPresenter(model: model)
         guard let presenter = contactEntryPresenter, let visibleViewController = navigationController.visibleViewController else {
@@ -53,6 +61,20 @@ extension ContactListCoordinator: ContactListPresenterDelegate {
 }
 
 extension ContactListCoordinator: ContactEntryPresenterDelegate {
+    func didSaveContact(_ contact: Contact) {
+        if contactService.saveContact(contact, contacts: contacts) {
+            contactListPresenter.isNeedRefresh = true
+            contacts = contactService.getContacts()
+            contactListPresenter.model.contacts = contacts
+        }
+        
+        guard let presentedController = navigationController.presentedViewController else {
+            return
+        }
+        
+        presentedController.dismiss(animated: true) {}
+    }
+    
     func didPressCancel() {
         guard let presentedController = navigationController.presentedViewController else {
             return

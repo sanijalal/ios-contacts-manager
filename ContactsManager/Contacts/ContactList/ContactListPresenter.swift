@@ -5,22 +5,13 @@ protocol ContactListPresenterDelegate {
 }
 
 class ContactListPresenter {
-    let contactService : ContactsService
-    let model: ContactListModel
-    
+    var model: ContactListModel
     var delegate: ContactListPresenterDelegate?
+    var isNeedRefresh: Bool
     
-    init (contactService: ContactsService) {
-        self.contactService = contactService
-        self.model = ContactListModel()
-    }
-    
-    func setup () {
-        getContacts()
-    }
-    
-    func getContacts () {
-        model.contacts = contactService.getContacts()
+    init (model: ContactListModel) {
+        self.model = model
+        self.isNeedRefresh = false
     }
     
     func numberOfContacts () -> Int {

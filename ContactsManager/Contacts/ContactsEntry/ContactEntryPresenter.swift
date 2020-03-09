@@ -10,6 +10,7 @@ import Foundation
 
 protocol ContactEntryPresenterDelegate {
     func didPressCancel()
+    func didSaveContact(_ contact: Contact)
 }
 
 class ContactEntryPresenter {
@@ -88,9 +89,16 @@ class ContactEntryPresenter {
         return IndexPath(row: row, section: section)
     }
     
+    func save(value: String, type: EntryFieldType) {
+        _ = model.saveFieldFor(type: type, value: value)
+    }
     
     func saveModel() {
+        guard let contact = model.currentContact() else {
+            return
+        }
         
+        delegate?.didSaveContact(contact)
     }
     
     func cancelPressed() {

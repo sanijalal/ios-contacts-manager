@@ -10,6 +10,7 @@ import UIKit
 
 protocol EntryFieldTableViewCellDelegate :NSObjectProtocol {
     func returnPressed(cell: UITableViewCell)
+    func entryTypeDidEndEditing(type: EntryFieldType, value: String)
 }
 
 class EntryFieldTableViewCell: UITableViewCell {
@@ -20,7 +21,8 @@ class EntryFieldTableViewCell: UITableViewCell {
     
     private var isShowingRequired: Bool!
     private var isRequiredCell: Bool!
-
+    var entryType: EntryFieldType?
+    
     required init?(coder: NSCoder) {
         self.isShowingRequired = false
         self.isRequiredCell = false
@@ -32,6 +34,7 @@ class EntryFieldTableViewCell: UITableViewCell {
         fieldLabel.text = field.type.rawValue
         textField.text = field.value
         isRequiredCell = field.isRequired
+        entryType = field.type
         entryFieldDelegate = delegate
         
         textField.keyboardType = field.keyboardType
@@ -68,8 +71,11 @@ class EntryFieldTableViewCell: UITableViewCell {
 }
 
 extension EntryFieldTableViewCell: UITextFieldDelegate {
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        
+    func textFieldDidEndEditing(_ thisTextField: UITextField) {
+        guard let text = thisTextField.text, let type = entryType else {
+            return
+        }
+        entryFieldDelegate?.entryTypeDidEndEditing(type: type, value: text)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

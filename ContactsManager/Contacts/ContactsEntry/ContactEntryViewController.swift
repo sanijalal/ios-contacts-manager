@@ -13,19 +13,6 @@ class ContactEntryViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     let presenter: ContactEntryPresenter!
     
-    convenience init() {
-        self.init(presenter: ContactEntryPresenter(model: ContactEntryModel(fields: [
-            EntryGroup(type: .mainInfo, fields: [
-                EntryField(type: .firstName, isRequired: true, keyboardType: .default, capitalizationType: .words, value: ""),
-                EntryField(type: .lastName, isRequired: true, keyboardType: .default, capitalizationType: .words, value: ""),
-            ]),
-            EntryGroup(type: .subInfo, fields: [
-                EntryField(type: .email, isRequired: false, keyboardType: .emailAddress, capitalizationType: .none, value: ""),
-                EntryField(type: .phoneNumber, isRequired: false, keyboardType: .namePhonePad, capitalizationType: .none, value: ""),
-            ])
-        ])))
-    }
-    
     init(presenter: ContactEntryPresenter) {
         self.presenter = presenter
         super.init(nibName: "ContactEntryViewController", bundle: nil)
@@ -52,18 +39,19 @@ class ContactEntryViewController: UIViewController {
 
 
     func setupTopBar() {
-        self.navigationItem.setLeftBarButton(UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(leftBarButtonItemPressed)),
+        self.navigationItem.setLeftBarButton(UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelButtonItemPressed)),
                                              animated: false)
-        self.navigationItem.setRightBarButton(UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(rightBarButtonItemPressed)),
+        self.navigationItem.setRightBarButton(UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(saveButtonItemPressed)),
         animated: false)
     }
     
-    @objc func leftBarButtonItemPressed() {
+    @objc func cancelButtonItemPressed() {
         presenter.cancelPressed()
     }
     
-    @objc func rightBarButtonItemPressed() {
-        
+    @objc func saveButtonItemPressed() {
+        view.endEditing(true)
+        presenter.saveModel()
     }
 
 }
@@ -109,6 +97,10 @@ extension ContactEntryViewController: UITableViewDelegate {
 }
 
 extension ContactEntryViewController: EntryFieldTableViewCellDelegate {
+    func entryTypeDidEndEditing(type: EntryFieldType, value: String) {
+        presenter.save(value: value, type: type)
+    }
+    
     func returnPressed(cell: UITableViewCell) {
         guard let currentPath = tableView.indexPath(for: cell) else {
             return

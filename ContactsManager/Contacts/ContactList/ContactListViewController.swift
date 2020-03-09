@@ -23,6 +23,10 @@ class ContactListViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        if presenter.isNeedRefresh {
+            tableView.reloadData()
+            presenter.isNeedRefresh = false
+        }
         
         guard let selectedIndexPath = tableView.indexPathForSelectedRow else {
             return

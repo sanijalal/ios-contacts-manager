@@ -45,6 +45,30 @@ class ContactsService {
         return contacts
     }
     
+    func saveContact(_ contact: Contact, contacts: [Contact]) -> Bool {
+        var contactsToSave = contacts
+        
+        var toReplaceIndex = 0
+        var isFound = false
+        for (index, value) in contacts.enumerated()
+        {
+            if contact.id == value.id {
+                toReplaceIndex = index
+                isFound = true
+                break
+            }
+        }
+        
+        if isFound {
+            contactsToSave[toReplaceIndex] = contact
+        } else {
+            contactsToSave.append(contact)
+        }
+        
+        return save(contacts: contactsToSave)
+
+    }
+    
     func save(contacts: [Contact]) -> Bool {
         do {
             let contactData = try JSONEncoder().encode(contacts)
