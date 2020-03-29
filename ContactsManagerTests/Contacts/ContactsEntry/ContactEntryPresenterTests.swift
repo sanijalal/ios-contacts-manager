@@ -20,7 +20,7 @@ class ContactEntryPresenterTests: XCTestCase {
             EntryGroup(type: .subInfo, fields: [
                 EntryField(type: .email, isRequired: false, keyboardType: .namePhonePad, capitalizationType: .words, value: "")
             ])
-        ]))
+        ], id: "sani"))
         
         return presenter
     }
@@ -63,7 +63,7 @@ class ContactEntryPresenterTests: XCTestCase {
             EntryGroup(type: .subInfo, fields: [
                 EntryField(type: .email, isRequired: false, keyboardType: .namePhonePad, capitalizationType: .words, value: "")
             ])
-        ]))
+        ], id: "sani"))
         
         XCTAssertTrue(presenter.validateFields())
     }
@@ -77,7 +77,7 @@ class ContactEntryPresenterTests: XCTestCase {
             EntryGroup(type: .subInfo, fields: [
                 EntryField(type: .email, isRequired: false, keyboardType: .namePhonePad, capitalizationType: .words, value: "")
             ])
-        ]))
+        ], id: "sani"))
         
         XCTAssertFalse(presenter.validateFields())
     }

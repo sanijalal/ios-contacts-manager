@@ -12,7 +12,7 @@ import XCTest
 class ContactEntryModelTests: XCTestCase {    
     func testModelShouldRetrieveFieldIfAvailable() {
         let model = ContactEntryModel(fields: [EntryGroup(type: .mainInfo,
-                                                          fields: [EntryField(type: .firstName, isRequired: true, keyboardType: .default, capitalizationType: .words, value: "Nama")])])
+                                                          fields: [EntryField(type: .firstName, isRequired: true, keyboardType: .default, capitalizationType: .words, value: "Nama")])], id: "sani")
         
         let field = model.getEntryType(type: .firstName, group: .mainInfo)
         XCTAssertNotNil(field)
@@ -20,7 +20,7 @@ class ContactEntryModelTests: XCTestCase {
     
     func testModelShouldRetrieveNilIfNotAvailable() {
         let model = ContactEntryModel(fields: [EntryGroup(type: .mainInfo,
-                                                          fields: [EntryField(type: .firstName, isRequired: true, keyboardType: .default, capitalizationType: .words, value: "Nama")])])
+                                                          fields: [EntryField(type: .firstName, isRequired: true, keyboardType: .default, capitalizationType: .words, value: "Nama")])], id: "sani")
         
         let field = model.getEntryType(type: .lastName, group: .mainInfo)
         XCTAssertNil(field)
@@ -28,7 +28,7 @@ class ContactEntryModelTests: XCTestCase {
     
     func testModelShouldRetrieveNilIfAvailableButGroupIsWrong() {
         let model = ContactEntryModel(fields: [EntryGroup(type: .mainInfo,
-                                                          fields: [EntryField(type: .firstName, isRequired: true, keyboardType: .default, capitalizationType: .words, value: "Nama")])])
+                                                          fields: [EntryField(type: .firstName, isRequired: true, keyboardType: .default, capitalizationType: .words, value: "Nama")])], id: "sani")
         
         let field = model.getEntryType(type: .lastName, group: .subInfo)
         XCTAssertNil(field)
@@ -37,7 +37,7 @@ class ContactEntryModelTests: XCTestCase {
     func testModelShouldBeAbleToSafeAvailableFieldAndReturnTrue() {
         let testValue = "Nama"
         let model = ContactEntryModel(fields: [EntryGroup(type: .mainInfo,
-        fields: [EntryField(type: .firstName, isRequired: true, keyboardType: .default, capitalizationType: .words, value: "Nama")])])
+                                                          fields: [EntryField(type: .firstName, isRequired: true, keyboardType: .default, capitalizationType: .words, value: "Nama")])], id: "sani")
         
         let isSaved = model.saveFieldFor(type: .firstName, groupType: .mainInfo, value: testValue)
         XCTAssertTrue(isSaved)
@@ -59,7 +59,7 @@ class ContactEntryModelTests: XCTestCase {
     
     func testFieldIsValidWhenRequiredAndValueIsAvailableReturnsTrue() {
         let model = ContactEntryModel(fields: [EntryGroup(type: .mainInfo,
-                                                          fields: [EntryField(type: .firstName, isRequired: true, keyboardType: .default, capitalizationType: .words, value: "Nama")])])
+                                                          fields: [EntryField(type: .firstName, isRequired: true, keyboardType: .default, capitalizationType: .words, value: "Nama")])], id: "sani")
         
         let isValid = model.checkEntryIsValid(type: .firstName, group: .mainInfo)
         XCTAssertTrue(isValid)
@@ -67,7 +67,7 @@ class ContactEntryModelTests: XCTestCase {
     
     func testFieldIsNotValidWhenRequiredAndValueIsEmptyReturnsFalse() {
         let model = ContactEntryModel(fields: [EntryGroup(type: .mainInfo,
-                                                          fields: [EntryField(type: .firstName, isRequired: true, keyboardType: .default, capitalizationType: .words, value: "")])])
+                                                          fields: [EntryField(type: .firstName, isRequired: true, keyboardType: .default, capitalizationType: .words, value: "")])], id: "sani")
         
         let isValid = model.checkEntryIsValid(type: .firstName, group: .mainInfo)
         XCTAssertFalse(isValid)
@@ -75,7 +75,7 @@ class ContactEntryModelTests: XCTestCase {
     
     func testFieldIsNotValidWhenRequiredAndValueIsNilReturnsFalse() {
         let model = ContactEntryModel(fields: [EntryGroup(type: .mainInfo,
-                                                          fields: [EntryField(type: .firstName, isRequired: true, keyboardType: .default, capitalizationType: .words, value: nil)])])
+                                                          fields: [EntryField(type: .firstName, isRequired: true, keyboardType: .default, capitalizationType: .words, value: nil)])], id: "sani")
         
         let isValid = model.checkEntryIsValid(type: .firstName, group: .mainInfo)
         XCTAssertFalse(isValid)
@@ -83,7 +83,7 @@ class ContactEntryModelTests: XCTestCase {
     
     func testFieldIsNotValidWhenNotRequiredAndValueIsAvailableReturnsTrue() {
         let model = ContactEntryModel(fields: [EntryGroup(type: .mainInfo,
-                                                          fields: [EntryField(type: .firstName, isRequired: true, keyboardType: .default, capitalizationType: .words, value: "Nama")])])
+                                                          fields: [EntryField(type: .firstName, isRequired: true, keyboardType: .default, capitalizationType: .words, value: "Nama")])], id: "sani")
         
         let isValid = model.checkEntryIsValid(type: .firstName, group: .mainInfo)
         XCTAssertTrue(isValid)
@@ -91,7 +91,7 @@ class ContactEntryModelTests: XCTestCase {
     
     func testFieldIsNotValidWhenNotRequiredAndValueIsEmptyReturnsTrue() {
         let model = ContactEntryModel(fields: [EntryGroup(type: .mainInfo,
-                                                          fields: [EntryField(type: .firstName, isRequired: true, keyboardType: .default, capitalizationType: .words, value: "Nama")])])
+                                                          fields: [EntryField(type: .firstName, isRequired: true, keyboardType: .default, capitalizationType: .words, value: "Nama")])], id: "sani")
         
         let isValid = model.checkEntryIsValid(type: .firstName, group: .mainInfo)
         XCTAssertTrue(isValid)
@@ -99,7 +99,7 @@ class ContactEntryModelTests: XCTestCase {
     
     func testFieldIsNotValidWhenNotRequiredAndValueIsNilReturnsTrue() {
         let model = ContactEntryModel(fields: [EntryGroup(type: .mainInfo,
-                                                          fields: [EntryField(type: .firstName, isRequired: true, keyboardType: .default, capitalizationType: .words, value: "Nama")])])
+                                                          fields: [EntryField(type: .firstName, isRequired: true, keyboardType: .default, capitalizationType: .words, value: "Nama")])], id: "sani")
         
         let isValid = model.checkEntryIsValid(type: .firstName, group: .mainInfo)
         XCTAssertTrue(isValid)
@@ -110,7 +110,7 @@ class ContactEntryModelTests: XCTestCase {
                                                           fields: [
                                                             EntryField(type: .firstName, isRequired: true, keyboardType: .default, capitalizationType: .words, value: nil),
                                                             EntryField(type: .firstName, isRequired: true, keyboardType: .default, capitalizationType: .words, value: "Nama")
-        ])])
+        ])], id: "sani")
         
         XCTAssertFalse(model.isValid())
     }
@@ -120,7 +120,7 @@ class ContactEntryModelTests: XCTestCase {
                                                           fields: [
                                                             EntryField(type: .firstName, isRequired: true, keyboardType: .default, capitalizationType: .words, value: "Nama"),
                                                             EntryField(type: .firstName, isRequired: true, keyboardType: .default, capitalizationType: .words, value: "Nama")
-        ])])
+        ])], id: "sani")
         
         XCTAssertTrue(model.isValid())
     }
