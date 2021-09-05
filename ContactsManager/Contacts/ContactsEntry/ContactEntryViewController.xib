@@ -12,7 +12,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ContactEntryViewController" customModule="ContactsManager" customModuleProvider="target">
             <connections>
                 <outlet property="tableView" destination="i8a-6R-CgO" id="0Xy-u5-QgG"/>
-                <outlet property="tableViewBottomConstraint" destination="SjE-9G-zwJ" id="dk6-zP-Zyj"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
