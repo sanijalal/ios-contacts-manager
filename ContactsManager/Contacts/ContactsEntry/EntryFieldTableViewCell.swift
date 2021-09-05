@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol EntryFieldTableViewCellDelegate :NSObjectProtocol {
+protocol EntryFieldTableViewCellDelegate: AnyObject {
     func returnPressed(cell: UITableViewCell)
     func entryTypeDidEndEditing(type: EntryFieldType, value: String)
 }

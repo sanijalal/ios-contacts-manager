@@ -22,12 +22,8 @@ class ContactEntryViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-//        let orangeView = UIView(frame: CGRect(x: 0, y: 0, width: 320, height: 200))
-//        orangeView.backgroundColor = UIColor.brandOrange
         let orangeView = OrangeDotTableHeaderView(frame: CGRect(x: 0, y: 0, width: 320, height: 100))
         tableView.tableHeaderView = orangeView
         
@@ -38,6 +34,33 @@ class ContactEntryViewController: UIViewController {
         setupTopBar()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc func adjustForKeyboard(notification: Notification) {
+        guard let keyboardValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+
+        let keyboardScreenEndFrame = keyboardValue.cgRectValue
+        let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
+
+        if notification.name == UIResponder.keyboardWillHideNotification {
+            tableView.contentInset = .zero
+        } else {
+            tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height - view.safeAreaInsets.bottom, right: 0)
+        }
+
+        tableView.scrollIndicatorInsets = tableView.contentInset
+    }
 
     func setupTopBar() {
         self.navigationItem.setLeftBarButton(UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelButtonItemPressed)),
@@ -91,13 +114,10 @@ extension ContactEntryViewController: UITableViewDataSource {
 }
 
 extension ContactEntryViewController: UITableViewDelegate {
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let cell = tableView.cellForRow(at: indexPath) as! EntryFieldTableViewCell
-//        self.isShowingRequired = false
-//    }
+
 }
 
-extension ContactEntryViewController: EntryFieldTableViewCellDelegate {
+extension ContactEntryViewController: EntryFieldTableViewCellDelegate {    
     func entryTypeDidEndEditing(type: EntryFieldType, value: String) {
         presenter.save(value: value, type: type)
     }
