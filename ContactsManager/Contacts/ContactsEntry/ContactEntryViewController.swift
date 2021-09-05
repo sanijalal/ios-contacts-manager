@@ -26,8 +26,9 @@ class ContactEntryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let orangeView = UIView(frame: CGRect(x: 0, y: 0, width: 320, height: 200))
-        orangeView.backgroundColor = UIColor.orange
+//        let orangeView = UIView(frame: CGRect(x: 0, y: 0, width: 320, height: 200))
+//        orangeView.backgroundColor = UIColor.brandOrange
+        let orangeView = OrangeDotTableHeaderView(frame: CGRect(x: 0, y: 0, width: 320, height: 100))
         tableView.tableHeaderView = orangeView
         
         tableView.register(UINib(nibName: "EntryFieldTableViewCell", bundle: nil),
