@@ -146,8 +146,8 @@
 				222B4F662413DF5200CF620A /* Branding */,
 				222B4F562413CDE400CF620A /* Coordinator */,
 				222B4F512413A1EC00CF620A /* Resources */,
-				228125C523EE5A100037236E /* Contacts */,
-				2203BA3A23EE2794007105AF /* Objects */,
+				228125C523EE5A100037236E /* Contacts View */,
+				2203BA3A23EE2794007105AF /* Shared Models */,
 				2203BA1123EE2533007105AF /* AppDelegate.swift */,
 				2203BA1323EE2539007105AF /* Assets.xcassets */,
 				2203BA1523EE2539007105AF /* LaunchScreen.storyboard */,
@@ -176,12 +176,12 @@
 			path = ContactsManagerUITests;
 			sourceTree = "<group>";
 		};
-		2203BA3A23EE2794007105AF /* Objects */ = {
+		2203BA3A23EE2794007105AF /* Shared Models */ = {
 			isa = PBXGroup;
 			children = (
 				2203BA3B23EE2A69007105AF /* Contact.swift */,
 			);
-			path = Objects;
+			path = "Shared Models";
 			sourceTree = "<group>";
 		};
 		222B4F4D2413A0BD00CF620A /* Retrieval */ = {
@@ -238,14 +238,14 @@
 			path = Branding;
 			sourceTree = "<group>";
 		};
-		228125C523EE5A100037236E /* Contacts */ = {
+		228125C523EE5A100037236E /* Contacts View */ = {
 			isa = PBXGroup;
 			children = (
 				222B4F592413CFD900CF620A /* ContactList */,
 				222B4F4D2413A0BD00CF620A /* Retrieval */,
 				228125C623EE5A2D0037236E /* ContactsEntry */,
 			);
-			path = Contacts;
+			path = "Contacts View";
 			sourceTree = "<group>";
 		};
 		228125C623EE5A2D0037236E /* ContactsEntry */ = {
