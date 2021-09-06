@@ -10,3 +10,10 @@ In each View Controller, the View Controller is written to be as dumb as possibl
 # Tests
 
 Both UI and Unit tests can be found in the respective test targets.
+
+# App Screens
+
+![2021-09-06 10 44 48](https://user-images.githubusercontent.com/43534043/132153719-b1c9b95c-687c-4b5e-b7b4-4cac41917f93.gif)
+
+
+
