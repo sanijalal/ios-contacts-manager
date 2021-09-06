@@ -19,6 +19,7 @@
                 <subviews>
                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="VfC-L4-0ze">
                         <rect key="frame" x="135" y="8" width="165" height="66"/>
+                        <accessibility key="accessibilityConfiguration" identifier="cellField"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits"/>
                         <connections>
@@ -27,6 +28,7 @@
                     </textField>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sIm-M0-JOe">
                         <rect key="frame" x="20" y="8" width="95" height="66"/>
+                        <accessibility key="accessibilityConfiguration" identifier="cellTitle"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="95" id="hUL-nu-RFp"/>
                         </constraints>

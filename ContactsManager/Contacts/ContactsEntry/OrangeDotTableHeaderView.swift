@@ -32,5 +32,8 @@ class OrangeDotTableHeaderView: UIView {
         circleView.centerXAnchor.constraint(equalTo: margins.centerXAnchor).isActive = true
         circleView.widthAnchor.constraint(equalTo: margins.heightAnchor, multiplier: 0.8).isActive = true
         circleView.heightAnchor.constraint(equalTo: margins.heightAnchor, multiplier: 0.8).isActive = true
+        
+        self.isAccessibilityElement = true
+        self.accessibilityIdentifier = "TopHeaderView"
     }
 }

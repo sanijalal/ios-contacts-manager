@@ -8,27 +8,53 @@
 
 import XCTest
 
-class ContactsManagerUITests: XCTestCase {
+class ContactsEntryViewControllerUITests: XCTestCase {
 
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-
-        // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
 
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    private func waitForOtherElementAndFailIfNotShown(app: XCUIApplication, identifier: String) {
+        if (app.otherElements[identifier].waitForExistence(timeout: 20)) == false {
+            XCTFail("\(identifier) is not shown")
+        }
     }
-
-    func testExample() {
+    
+    func testContactDetailsPageContainsFourLabels() {
+        let nameToTest = "Phoebe Monroe"
         // UI tests must launch the application that they test.
         let app = XCUIApplication()
         app.launch()
+        app.tables.cells.containing(.staticText, identifier:nameToTest).element.tap()
+        waitForOtherElementAndFailIfNotShown(app: app, identifier: "TopHeaderView")
+        XCTAssertTrue(app.tables.cells.count == 4, "The number of cells displayed is not 4, it is \(app.tables.cells.count)")
+    }
+    
+    func testWhenNameIsSelectedAllFieldsAreShownCorrectly() {
+        let nameToTest = "Phoebe Monroe"
+        // UI tests must launch the application that they test.
+        let app = XCUIApplication()
+        app.launch()
+        app.tables.cells.containing(.staticText, identifier:nameToTest).element.tap()
+        waitForOtherElementAndFailIfNotShown(app: app, identifier: "TopHeaderView")
+        let texts = app.staticTexts.containing(.staticText, identifier: "cellTitle")
+        XCTAssertTrue(texts.element(boundBy: 0).label == "First Name")
+        XCTAssertTrue(texts.element(boundBy: 1).label == "Last Name")
+        XCTAssertTrue(texts.element(boundBy: 2).label == "Email")
+        XCTAssertTrue(texts.element(boundBy: 3).label == "Phone Number")
+    }
+    
+    func testWhenNameIsSelectedDetailsAreShownCorrectly() {
+        let nameToTest = "Phoebe Monroe"
+        let app = XCUIApplication()
+        app.launch()
 
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        app.tables.cells.containing(.staticText, identifier:nameToTest).element.tap()
+        waitForOtherElementAndFailIfNotShown(app: app, identifier: "TopHeaderView")
+        let texts = app.textFields.containing(.textField, identifier: "cellField")
+        XCTAssertTrue(texts.element(boundBy: 0).value as! String == "Phoebe")
+        XCTAssertTrue(texts.element(boundBy: 1).value as! String == "Monroe")
+        XCTAssertTrue(texts.element(boundBy: 2).value as! String == "phoebemonroe@furnafix.com")
+        XCTAssertTrue(texts.element(boundBy: 3).value as! String == "(903) 553-3410")
     }
 }
