@@ -36,6 +36,7 @@
 		228125DC23EF82570037236E /* ContactEntryPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228125DB23EF82570037236E /* ContactEntryPresenterTests.swift */; };
 		22D6E25126E47F830075469A /* UIColor+BrandColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D6E25026E47F830075469A /* UIColor+BrandColor.swift */; };
 		22D6E25326E480E10075469A /* OrangeDotTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D6E25226E480E10075469A /* OrangeDotTableHeaderView.swift */; };
+		22D6E25626E5A9BF0075469A /* ContactListPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D6E25526E5A9BF0075469A /* ContactListPresenterTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,7 @@
 		228125DB23EF82570037236E /* ContactEntryPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactEntryPresenterTests.swift; sourceTree = "<group>"; };
 		22D6E25026E47F830075469A /* UIColor+BrandColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+BrandColor.swift"; sourceTree = "<group>"; };
 		22D6E25226E480E10075469A /* OrangeDotTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrangeDotTableHeaderView.swift; sourceTree = "<group>"; };
+		22D6E25526E5A9BF0075469A /* ContactListPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListPresenterTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -264,6 +266,7 @@
 		228125CD23EE5B100037236E /* Contacts Views */ = {
 			isa = PBXGroup;
 			children = (
+				22D6E25426E5A9A90075469A /* Contact List */,
 				222B4F4E2413A0C600CF620A /* Retrieval */,
 				228125CE23EE5B1F0037236E /* ContactsEntry */,
 			);
@@ -277,6 +280,14 @@
 				228125CF23EE5B340037236E /* ContactEntryModelTests.swift */,
 			);
 			path = ContactsEntry;
+			sourceTree = "<group>";
+		};
+		22D6E25426E5A9A90075469A /* Contact List */ = {
+			isa = PBXGroup;
+			children = (
+				22D6E25526E5A9BF0075469A /* ContactListPresenterTests.swift */,
+			);
+			path = "Contact List";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -441,6 +452,7 @@
 				228125DC23EF82570037236E /* ContactEntryPresenterTests.swift in Sources */,
 				228125D023EE5B340037236E /* ContactEntryModelTests.swift in Sources */,
 				2203BA3E23EE2A9C007105AF /* ContactTests.swift in Sources */,
+				22D6E25626E5A9BF0075469A /* ContactListPresenterTests.swift in Sources */,
 				222B4F502413A10900CF620A /* ContactsServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
