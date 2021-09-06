@@ -1,6 +1,6 @@
 import Foundation
 
-class ContactListModel {
+struct ContactListModel {
     var contacts: [Contact]
     
     init () {
