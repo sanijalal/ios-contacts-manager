@@ -157,7 +157,7 @@
 		2203BA2023EE2539007105AF /* ContactsManagerTests */ = {
 			isa = PBXGroup;
 			children = (
-				228125CD23EE5B100037236E /* Contacts */,
+				228125CD23EE5B100037236E /* Contacts Views */,
 				2203BA2323EE2539007105AF /* Info.plist */,
 				2203BA3D23EE2A9C007105AF /* ContactTests.swift */,
 			);
@@ -261,13 +261,13 @@
 			path = ContactsEntry;
 			sourceTree = "<group>";
 		};
-		228125CD23EE5B100037236E /* Contacts */ = {
+		228125CD23EE5B100037236E /* Contacts Views */ = {
 			isa = PBXGroup;
 			children = (
 				222B4F4E2413A0C600CF620A /* Retrieval */,
 				228125CE23EE5B1F0037236E /* ContactsEntry */,
 			);
-			path = Contacts;
+			path = "Contacts Views";
 			sourceTree = "<group>";
 		};
 		228125CE23EE5B1F0037236E /* ContactsEntry */ = {
