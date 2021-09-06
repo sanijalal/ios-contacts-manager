@@ -1,6 +1,6 @@
 //
-//  ContactsManagerUITests.swift
-//  ContactsManagerUITests
+//  ContactsEntryViewControllerUITests.swift
+//  ContactsEntryViewControllerUITests
 //
 //  Created by Sani on 2/8/20.
 //  Copyright © 2020 Sani. All rights reserved.
